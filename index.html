@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Davis Tanto | Information Systems Student</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #ffffff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: white;
+        }
+
+        nav .logo {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 25px;
+        }
+
+        section {
+            padding: 80px 8%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .hero .description {
+            max-width: 650px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        h2.section-title {
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .about-text {
+            max-width: 750px;
+            color: #555;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            border: 1px solid #ddd;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #eee;
+            color: #777;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Matthew Davis Tanto</div>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <p>INFORMATION SYSTEMS STUDENT</p>
+
+        <h1>Matthew Davis Tanto</h1>
+
+        <h2>Business Analysis · Digital Business · Project & Operations</h2>
+
+        <p class="description">
+            Information Systems student at BINUS University interested in
+            business analysis, digital business, project management, and
+            data-driven problem solving.
+        </p>
+
+        <div>
+            <a href="#projects" class="button">View Projects</a>
+            <a href="#contact" class="button">Contact Me</a>
+        </div>
+    </section>
+
+
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="about-text">
+            I am an Information Systems student at BINUS University with
+            experience in property sales and marketing, organizational
+            management, event operations, UX design, and database projects.
+            I am currently developing my technical and business skills in
+            SQL, databases, data analysis, digital business, and project
+            coordination.
+        </p>
+
+    </section>
+
+
+    <section id="projects">
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+
+                <h3>
+                    Improving Shopee Cart Navigation
+                </h3>
+
+                <p>
+                    UX design project exploring sorting, filtering,
+                    calendar, and search features to improve navigation
+                    within a large shopping cart.
+                </p>
+
+                <div class="tags">
+                    UX Design · Figma · A/B Testing
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>
+                    SupVibe — Database Management System
+                </h3>
+
+                <p>
+                    Relational database project covering database design,
+                    SQL implementation, data management, complex queries,
+                    and database views for a supplement business.
+                </p>
+
+                <div class="tags">
+                    SQL · Oracle · Database · ERD
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="skills">
+
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills">
+
+            <span class="skill">SQL</span>
+            <span class="skill">Oracle SQL</span>
+            <span class="skill">Database Design</span>
+            <span class="skill">Python</span>
+            <span class="skill">Microsoft Excel</span>
+            <span class="skill">Figma</span>
+            <span class="skill">Git & GitHub</span>
+            <span class="skill">Business Analysis</span>
+            <span class="skill">Project Coordination</span>
+            <span class="skill">Communication</span>
+
+        </div>
+
+    </section>
+
+
+    <section id="contact">
+
+        <h2 class="section-title">Contact</h2>
+
+        <p class="about-text">
+            Jakarta, Indonesia
+        </p>
+
+        <p class="about-text">
+            Email:
+            <a href="mailto:mdavistanto@gmail.com">
+                mdavistanto@gmail.com
+            </a>
+        </p>
+
+        <p class="about-text">
+            LinkedIn:
+            <a href="#">
+                LinkedIn Profile
+            </a>
+        </p>
+
+    </section>
+
+
+    <footer>
+        © 2026 Matthew Davis Tanto
+    </footer>
+
+</body>
+</html>
