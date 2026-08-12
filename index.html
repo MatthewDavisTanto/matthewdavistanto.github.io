@@ -3,310 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Davis Tanto | Information Systems Student</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description"
+        content="Matthew Davis Tanto — Information Systems student portfolio.">
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #222;
-            background: #ffffff;
-        }
+    <title>Matthew Davis Tanto | Information Systems</title>
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            background: white;
-        }
-
-        nav .logo {
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 25px;
-        }
-
-        section {
-            padding: 80px 8%;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            margin-bottom: 15px;
-        }
-
-        .hero h2 {
-            font-size: 24px;
-            font-weight: normal;
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .hero .description {
-            max-width: 650px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 20px;
-            background: #222;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-right: 10px;
-        }
-
-        h2.section-title {
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
-
-        .about-text {
-            max-width: 750px;
-            color: #555;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            border: 1px solid #ddd;
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        .project-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .tags {
-            font-size: 14px;
-            color: #777;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            border: 1px solid #ddd;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #eee;
-            color: #777;
-        }
-
-        @media (max-width: 700px) {
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav>
-        <div class="logo">Matthew Davis Tanto</div>
+    <!-- NAVIGATION -->
+    <header class="navbar">
 
-        <div>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                Matthew<span>.</span>
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="#about">About</a>
+
+                <a href="#projects">Projects</a>
+
+                <a href="#skills">Skills</a>
+
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <a href="#contact" class="nav-button">
+                Let's Connect
+            </a>
+
         </div>
-    </nav>
 
-    <section class="hero">
-        <p>INFORMATION SYSTEMS STUDENT</p>
-
-        <h1>Matthew Davis Tanto</h1>
-
-        <h2>Business Analysis · Digital Business · Project & Operations</h2>
-
-        <p class="description">
-            Information Systems student at BINUS University interested in
-            business analysis, digital business, project management, and
-            data-driven problem solving.
-        </p>
-
-        <div>
-            <a href="#projects" class="button">View Projects</a>
-            <a href="#contact" class="button">Contact Me</a>
-        </div>
-    </section>
+    </header>
 
 
-    <section id="about">
+    <main>
 
-        <h2 class="section-title">About Me</h2>
+        <!-- HERO -->
+        <section class="hero">
 
-        <p class="about-text">
-            I am an Information Systems student at BINUS University with
-            experience in property sales and marketing, organizational
-            management, event operations, UX design, and database projects.
-            I am currently developing my technical and business skills in
-            SQL, databases, data analysis, digital business, and project
-            coordination.
-        </p>
+            <div class="hero-container">
 
-    </section>
+                <div class="hero-content">
+
+                    <p class="eyebrow">
+                        INFORMATION SYSTEMS STUDENT
+                    </p>
+
+                    <h1>
+                        Matthew<br>
+                        <span>Davis Tanto.</span>
+                    </h1>
+
+                    <p class="hero-description">
+
+                        Information Systems student at BINUS University
+                        interested in business analysis, digital business,
+                        project management, and data-driven problem solving.
+
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="button primary">
+                            View My Projects
+                            <span>↗</span>
+                        </a>
+
+                        <a href="https://www.linkedin.com/"
+                           target="_blank"
+                           class="button secondary">
+
+                            LinkedIn
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
 
 
-    <section id="projects">
+                <div class="hero-decoration">
 
-        <h2 class="section-title">Featured Projects</h2>
+                    <div class="hero-circle"></div>
 
-        <div class="projects">
+                    <div class="hero-card">
 
-            <div class="project-card">
+                        <span>Currently</span>
 
-                <h3>
-                    Improving Shopee Cart Navigation
-                </h3>
+                        <strong>
+                            Building & Learning
+                        </strong>
 
-                <p>
-                    UX design project exploring sorting, filtering,
-                    calendar, and search features to improve navigation
-                    within a large shopping cart.
-                </p>
+                        <p>
+                            Business · Technology · Data
+                        </p>
 
-                <div class="tags">
-                    UX Design · Figma · A/B Testing
+                    </div>
+
                 </div>
 
             </div>
 
+        </section>
 
-            <div class="project-card">
 
-                <h3>
-                    SupVibe — Database Management System
-                </h3>
+        <!-- ABOUT -->
+        <section id="about" class="section">
 
-                <p>
-                    Relational database project covering database design,
-                    SQL implementation, data management, complex queries,
-                    and database views for a supplement business.
-                </p>
+            <div class="section-label">
+                01 — ABOUT
+            </div>
 
-                <div class="tags">
-                    SQL · Oracle · Database · ERD
+            <div class="about-grid">
+
+                <h2>
+                    Bridging business<br>
+                    and technology.
+                </h2>
+
+                <div class="about-text">
+
+                    <p>
+                        I am an Information Systems student at BINUS
+                        University with experience in property sales and
+                        marketing, organizational management, and event
+                        operations.
+                    </p>
+
+                    <p>
+                        My academic projects have allowed me to explore
+                        UX design, database development, SQL, and
+                        digital business. I am currently developing
+                        both my technical and business skills.
+                    </p>
+
+                    <p>
+                        I am particularly interested in Business
+                        Analysis, Product Management, Project Management,
+                        and Data Analytics.
+                    </p>
+
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <section id="skills">
+        <!-- PROJECTS -->
+        <section id="projects" class="section projects-section">
 
-        <h2 class="section-title">Skills</h2>
+            <div class="section-label">
+                02 — SELECTED PROJECTS
+            </div>
 
-        <div class="skills">
+            <div class="section-heading">
 
-            <span class="skill">SQL</span>
-            <span class="skill">Oracle SQL</span>
-            <span class="skill">Database Design</span>
-            <span class="skill">Python</span>
-            <span class="skill">Microsoft Excel</span>
-            <span class="skill">Figma</span>
-            <span class="skill">Git & GitHub</span>
-            <span class="skill">Business Analysis</span>
-            <span class="skill">Project Coordination</span>
-            <span class="skill">Communication</span>
+                <h2>
+                    Things I've<br>
+                    worked on.
+                </h2>
 
-        </div>
+                <p>
+                    A selection of academic and practical projects
+                    exploring business, technology, UX, and data.
+                </p>
 
-    </section>
-
-
-    <section id="contact">
-
-        <h2 class="section-title">Contact</h2>
-
-        <p class="about-text">
-            Jakarta, Indonesia
-        </p>
-
-        <p class="about-text">
-            Email:
-            <a href="mailto:mdavistanto@gmail.com">
-                mdavistanto@gmail.com
-            </a>
-        </p>
-
-        <p class="about-text">
-            LinkedIn:
-            <a href="#">
-                LinkedIn Profile
-            </a>
-        </p>
-
-    </section>
+            </div>
 
 
+            <div class="project-grid">
+
+
+                <!-- PROJECT 1 -->
+                <article class="project-card">
+
+                    <div class="project-number">
+                        01
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-category">
+                            UX DESIGN · A/B TESTING
+                        </div>
+
+                        <h3>
+                            Improving Shopee
+                            Cart Navigation
+                        </h3>
+
+                        <p>
+                            A UX project exploring sorting, filtering,
+                            calendar, and search features to improve
+                            navigation within a large shopping cart.
+                        </p>
+
+                        <div class="project-tags">
+
+                            <span>Figma</span>
+                            <span>User Research</span>
+                            <span>A/B Testing</span>
+
+                        </div>
+
+                        <a href="#" class="project-link">
+                            View Case Study <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 2 -->
+                <article class="project-card">
+
+                    <div class="project-number">
+                        02
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-category">
+                            DATABASE · SQL
+                        </div>
+
+                        <h3>
+                            SupVibe
+                            Database System
+                        </h3>
+
+                        <p>
+                            A relational database project designed to
+                            support supplement products, customers,
+                            employees, transactions, and custom orders.
+                        </p>
+
+                        <div class="project-tags">
+
+                            <span>Oracle SQL</span>
+                            <span>ERD</span>
+                            <span>Database</span>
+
+                        </div>
+
+                        <a href="#" class="project-link">
+                            View Case Study <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+
+            <div class="section-label">
+                03 — SKILLS
+            </div>
+
+            <div class="skills-grid">
+
+                <div>
+
+                    <h2>
+                        What I'm<br>
+                        working with.
+                    </h2>
+
+                </div>
+
+
+                <div class="skills-list">
+
+                    <div class="skill-group">
+
+                        <h3>
+                            Technical
+                        </h3>
+
+                        <div class="skill-items">
+
+                            <span>SQL</span>
+                            <span>Oracle SQL</span>
+                            <span>Database Design</span>
+                            <span>ERD</span>
+                            <span>Python</span>
+                            <span>Microsoft Excel</span>
+                            <span>Figma</span>
+                            <span>Git & GitHub</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-group">
+
+                        <h3>
+                            Business
+                        </h3>
+
+                        <div class="skill-items">
+
+                            <span>Business Analysis</span>
+                            <span>Project Coordination</span>
+                            <span>Budget Management</span>
+                            <span>Communication</span>
+                            <span>Problem Solving</span>
+                            <span>CRM</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section id="contact" class="contact-section">
+
+            <div class="section-label">
+                04 — CONTACT
+            </div>
+
+            <div class="contact-content">
+
+                <p class="eyebrow">
+                    HAVE AN OPPORTUNITY?
+                </p>
+
+                <h2>
+                    Let's talk.
+                </h2>
+
+                <p>
+                    I'm currently open to internship, part-time,
+                    project, and learning opportunities.
+                </p>
+
+                <a
+                    href="mailto:mdavistanto@gmail.com"
+                    class="contact-email">
+
+                    mdavistanto@gmail.com
+
+                    <span>↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
     <footer>
-        © 2026 Matthew Davis Tanto
+
+        <div class="footer-container">
+
+            <p>
+                © 2026 Matthew Davis Tanto
+            </p>
+
+            <div>
+
+                <a href="https://www.linkedin.com/"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="https://github.com/"
+                   target="_blank">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
     </footer>
+
 
 </body>
 </html>
