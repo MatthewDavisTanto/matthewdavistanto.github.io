@@ -1881,3 +1881,511 @@ footer div:hover {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* =====================================================
+   INFINITE MARQUEE
+   Technology & Work / Organizational Experience
+===================================================== */
+
+
+/* =====================================================
+   1. MARQUEE SECTION
+===================================================== */
+
+.marquee-section {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    background: var(--surface);
+}
+
+
+/* Small section label */
+
+.marquee-label {
+    width: min(var(--container), calc(100% - 50px));
+
+    margin: 0 auto;
+
+    padding: 15px 0 11px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+
+/* =====================================================
+   2. MARQUEE VIEWPORT
+===================================================== */
+
+.marquee-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 18px 0 20px;
+}
+
+
+/* Fade on left and right */
+
+.marquee-wrapper::before,
+.marquee-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 100px;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.marquee-wrapper::before {
+    left: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--surface) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+}
+
+.marquee-wrapper::after {
+    right: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            var(--surface) 0%,
+            rgba(255, 255, 255, 0) 100%
+        );
+}
+
+
+/* =====================================================
+   3. MARQUEE TRACK
+===================================================== */
+
+.marquee-track {
+    display: flex;
+
+    width: max-content;
+
+    align-items: center;
+
+    gap: 18px;
+
+    animation:
+        marquee-left 30s linear infinite;
+
+    will-change: transform;
+}
+
+
+/* Reverse direction for experience marquee */
+
+.marquee-track-reverse {
+    animation:
+        marquee-right 34s linear infinite;
+}
+
+
+/* =====================================================
+   4. PAUSE ON HOVER
+===================================================== */
+
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+
+/* =====================================================
+   5. MARQUEE ITEM
+===================================================== */
+
+.marquee-item {
+    flex: 0 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   6. TECHNOLOGY ITEMS
+===================================================== */
+
+.tech-item {
+    padding: 11px 17px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-pill);
+
+    background: var(--surface);
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    box-shadow:
+        0 3px 10px rgba(16, 24, 40, 0.03);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* Small technology mark */
+
+.tech-symbol {
+    width: 26px;
+    height: 26px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: var(--accent-soft);
+
+    color: var(--accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+
+/* Technology hover */
+
+.tech-item:hover {
+    border-color: rgba(40, 100, 232, 0.30);
+
+    color: var(--accent);
+
+    background: #fbfdff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(40, 100, 232, 0.08);
+}
+
+.tech-item:hover .tech-symbol {
+    background: var(--accent);
+
+    color: white;
+
+    transform:
+        scale(1.08)
+        rotate(-3deg);
+}
+
+
+/* =====================================================
+   7. EXPERIENCE ITEMS
+===================================================== */
+
+.experience-marquee-section {
+    background: var(--bg);
+}
+
+.experience-marquee-section .marquee-wrapper::before {
+    background:
+        linear-gradient(
+            90deg,
+            var(--bg) 0%,
+            rgba(247, 248, 250, 0) 100%
+        );
+}
+
+.experience-marquee-section .marquee-wrapper::after {
+    background:
+        linear-gradient(
+            270deg,
+            var(--bg) 0%,
+            rgba(247, 248, 250, 0) 100%
+        );
+}
+
+
+.experience-item {
+    min-width: 255px;
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid transparent;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+
+/* Experience mark */
+
+.experience-mark {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    border-radius: 12px;
+
+    background: var(--text);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+
+
+/* Experience text */
+
+.experience-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.experience-text strong {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.experience-text span {
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* Experience hover */
+
+.experience-item:hover {
+    background: rgba(255, 255, 255, 0.75);
+
+    border-color: var(--border);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(16, 24, 40, 0.05);
+}
+
+.experience-item:hover .experience-mark {
+    background: var(--accent);
+
+    transform:
+        scale(1.06)
+        rotate(-2deg);
+}
+
+
+/* =====================================================
+   8. MARQUEE ANIMATIONS
+===================================================== */
+
+
+/*
+   Because the HTML contains two identical sets
+   of items, the track can move exactly 50% of
+   its total width and seamlessly repeat.
+*/
+
+@keyframes marquee-left {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+@keyframes marquee-right {
+
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =====================================================
+   9. RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .marquee-label {
+        width: calc(100% - 40px);
+    }
+
+    .marquee-track {
+        gap: 14px;
+
+        animation-duration: 26s;
+    }
+
+    .marquee-track-reverse {
+        animation-duration: 29s;
+    }
+
+    .tech-item {
+        padding: 10px 15px;
+    }
+
+    .experience-item {
+        min-width: 235px;
+    }
+
+}
+
+
+/* =====================================================
+   10. RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .marquee-label {
+        width: calc(100% - 30px);
+
+        padding:
+            13px 0 9px;
+
+        font-size: 8px;
+    }
+
+    .marquee-wrapper {
+        padding:
+            14px 0 16px;
+    }
+
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+        width: 60px;
+    }
+
+    .marquee-track {
+        gap: 11px;
+
+        animation-duration: 22s;
+    }
+
+    .marquee-track-reverse {
+        animation-duration: 25s;
+    }
+
+    .tech-item {
+        padding:
+            9px 13px;
+
+        font-size: 11px;
+    }
+
+    .tech-symbol {
+        width: 23px;
+        height: 23px;
+
+        border-radius: 7px;
+
+        font-size: 8px;
+    }
+
+    .experience-item {
+        min-width: 215px;
+
+        padding:
+            10px 14px;
+    }
+
+    .experience-mark {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+
+        font-size: 10px;
+    }
+
+    .experience-text strong {
+        font-size: 11px;
+    }
+
+    .experience-text span {
+        font-size: 9px;
+    }
+
+}
