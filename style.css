@@ -2309,11 +2309,16 @@ footer div:hover {
 
 .experience-item:hover .experience-logo,
 .experience-item:focus-visible .experience-logo {
-    background: var(--accent);
+    background: #ffffff;
+
+    border-color: var(--accent);
 
     transform:
-        scale(1.07)
-        rotate(-3deg);
+        translateY(-2px)
+        scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(40, 100, 232, 0.12);
 }
 
 
@@ -2537,11 +2542,15 @@ footer div:hover {
         gap: 11px;
     }
 
-    .experience-logo {
-    width: 58px;
-    height: 58px;
+    /* =====================================================
+   EXPERIENCE LOGO
+===================================================== */
 
-    display: inline-flex;
+.experience-logo {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
 
     align-items: center;
     justify-content: center;
@@ -2550,20 +2559,20 @@ footer div:hover {
 
     border-radius: 14px;
 
-    background: var(--text);
+    background: #ffffff;
 
-    color: white;
+    border: 1px solid var(--border);
 
-    font-size: 11px;
+    box-shadow:
+        0 5px 15px rgba(16, 24, 40, 0.05);
 
-    font-weight: 800;
-
-    letter-spacing: -0.3px;
+    overflow: hidden;
 
     transition:
         transform var(--transition),
-        background var(--transition),
-        color var(--transition);
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
 }
 
     .experience-info strong {
@@ -2649,6 +2658,13 @@ footer div:hover {
     .marquee-logo img {
         width: 22px;
         height: 22px;
+    }
+
+    .experience-logo {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 12px;
     }
 
     .experience-logo img {
