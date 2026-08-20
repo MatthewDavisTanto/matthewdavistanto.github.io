@@ -1,5 +1,11 @@
 // =====================================================
-// SCROLL REVEAL
+// MATTHEW DAVIS TANTO — PORTFOLIO
+// SCRIPT
+// =====================================================
+
+
+// =====================================================
+// 1. SCROLL REVEAL
 // =====================================================
 
 const revealElements = document.querySelectorAll(
@@ -37,131 +43,176 @@ revealElements.forEach((element) => {
 
 
 // =====================================================
-// INFINITE MARQUEE
+// 2. MARQUEE ENGINE
 // =====================================================
 
-document.querySelectorAll(".marquee-wrapper").forEach((wrapper) => {
+function initializeMarquee({
+    wrapperSelector,
+    trackSelector,
+    groupSelector,
+    previousSelector,
+    nextSelector,
+    direction,
+    speed
+}) {
 
-    const track = wrapper.querySelector(".marquee-track");
-    const groups = track.querySelectorAll(".marquee-group");
+    document.querySelectorAll(wrapperSelector).forEach((wrapper) => {
 
-    const previousButton =
-        wrapper.querySelector(".marquee-control-prev");
+        const track =
+            wrapper.querySelector(trackSelector);
 
-    const nextButton =
-        wrapper.querySelector(".marquee-control-next");
+        const groups =
+            track?.querySelectorAll(groupSelector);
 
+        const previousButton =
+            wrapper.querySelector(previousSelector);
 
-    // -------------------------------------------------
-    // Safety check
-    // -------------------------------------------------
-
-    if (!track || groups.length < 2) {
-        return;
-    }
-
-
-    // -------------------------------------------------
-    // Configuration
-    // -------------------------------------------------
-
-    const direction =
-        track.classList.contains("marquee-track-reverse")
-            ? 1
-            : -1;
-
-    const speed = 0.45;
-
-    let position = 0;
-
-    let groupWidth = 0;
-
-    let isPaused = false;
-
-    let isDragging = false;
-
-    let startPointerX = 0;
-
-    let startPosition = 0;
-
-    let animationFrame = null;
+        const nextButton =
+            wrapper.querySelector(nextSelector);
 
 
-    // -------------------------------------------------
-    // Measure the first group
-    // -------------------------------------------------
+        // -------------------------------------------------
+        // Safety check
+        // -------------------------------------------------
 
-    function measure() {
-
-        groupWidth = groups[0].getBoundingClientRect().width;
-
-        /*
-            The gap between two groups is part of the
-            track layout, so we calculate it separately.
-        */
-
-        const trackStyles = window.getComputedStyle(track);
-
-        const gap = parseFloat(trackStyles.gap) || 0;
-
-        groupWidth += gap;
-    }
-
-
-    // -------------------------------------------------
-    // Normalize position
-    // -------------------------------------------------
-
-    function normalizePosition() {
-
-        if (groupWidth <= 0) {
+        if (!track || !groups || groups.length < 2) {
             return;
         }
 
 
-        /*
-            Left-to-right / right-to-left loop.
+        // -------------------------------------------------
+        // State
+        // -------------------------------------------------
 
-            We keep position inside exactly one group width.
-            This prevents the visible "reset" effect.
-        */
+        let groupWidth = 0;
 
-        while (position <= -groupWidth) {
+        let position = 0;
 
-            position += groupWidth;
+        let animationFrame = null;
+
+        let isPaused = false;
+
+        let isDragging = false;
+
+        let pointerStartX = 0;
+
+        let positionAtDragStart = 0;
+
+        let resumeTimer = null;
+
+
+        // -------------------------------------------------
+        // Configuration
+        // -------------------------------------------------
+
+        const stepMultiplier = 0.45;
+
+
+        // -------------------------------------------------
+        // Touch / pointer behavior
+        // -------------------------------------------------
+
+        wrapper.style.touchAction = "pan-y";
+
+
+        // -------------------------------------------------
+        // Measure group
+        // -------------------------------------------------
+
+        function measure() {
+
+            const firstGroup =
+                groups[0];
+
+            if (!firstGroup) {
+                return;
+            }
+
+            const rect =
+                firstGroup.getBoundingClientRect();
+
+            const trackStyles =
+                window.getComputedStyle(track);
+
+            const gap =
+                parseFloat(trackStyles.columnGap) ||
+                parseFloat(trackStyles.gap) ||
+                0;
+
+            groupWidth =
+                rect.width + gap;
 
         }
 
-        while (position >= groupWidth) {
 
-            position -= groupWidth;
+        // -------------------------------------------------
+        // Normalize position
+        // -------------------------------------------------
+
+        function normalizePosition() {
+
+            if (groupWidth <= 0) {
+                return;
+            }
+
+
+            /*
+                Forward:
+                0 → -groupWidth → 0
+
+                Reverse:
+                -groupWidth → 0 → -groupWidth
+            */
+
+            while (position <= -groupWidth) {
+
+                position += groupWidth;
+
+            }
+
+            while (position > 0) {
+
+                position -= groupWidth;
+
+            }
 
         }
 
-    }
+
+        // -------------------------------------------------
+        // Render
+        // -------------------------------------------------
+
+        function render() {
+
+            track.style.transform =
+                `translate3d(${position}px, 0, 0)`;
+
+        }
 
 
-    // -------------------------------------------------
-    // Render
-    // -------------------------------------------------
+        // -------------------------------------------------
+        // Initial position
+        // -------------------------------------------------
 
-    function render() {
+        function initializePosition() {
 
-        track.style.transform =
-            `translate3d(${position}px, 0, 0)`;
+            /*
+                For the reverse marquee we begin on the
+                second group so the animation can move
+                toward the first group without showing
+                an empty area.
+            */
 
-    }
+            if (direction === 1) {
 
+                position = -groupWidth;
 
-    // -------------------------------------------------
-    // Animation loop
-    // -------------------------------------------------
+            } else {
 
-    function animate() {
+                position = 0;
 
-        if (!isPaused && !isDragging) {
-
-            position += speed * direction;
+            }
 
             normalizePosition();
 
@@ -169,299 +220,419 @@ document.querySelectorAll(".marquee-wrapper").forEach((wrapper) => {
 
         }
 
-        animationFrame =
-            requestAnimationFrame(animate);
 
-    }
+        // -------------------------------------------------
+        // Animation
+        // -------------------------------------------------
 
+        function animate() {
 
-    // -------------------------------------------------
-    // Pause / Resume
-    // -------------------------------------------------
+            if (!isPaused && !isDragging) {
 
-    wrapper.addEventListener("mouseenter", () => {
+                position +=
+                    speed * direction;
 
-        isPaused = true;
+                normalizePosition();
 
-    });
+                render();
 
+            }
 
-    wrapper.addEventListener("mouseleave", () => {
-
-        if (!isDragging) {
-
-            isPaused = false;
+            animationFrame =
+                requestAnimationFrame(animate);
 
         }
 
-    });
 
+        // -------------------------------------------------
+        // Pause
+        // -------------------------------------------------
 
-    // -------------------------------------------------
-    // Manual movement
-    // -------------------------------------------------
+        function pause() {
 
-    function moveBy(amount) {
+            isPaused = true;
 
-        position += amount;
-
-        normalizePosition();
-
-        render();
-
-    }
-
-
-    // -------------------------------------------------
-    // Previous button
-    // -------------------------------------------------
-
-    if (previousButton) {
-
-        previousButton.addEventListener("click", (event) => {
-
-            event.preventDefault();
-
-            moveBy(direction === -1
-                ? groupWidth * 0.45
-                : -groupWidth * 0.45
-            );
-
-        });
-
-    }
-
-
-    // -------------------------------------------------
-    // Next button
-    // -------------------------------------------------
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", (event) => {
-
-            event.preventDefault();
-
-            moveBy(direction === -1
-                ? -groupWidth * 0.45
-                : groupWidth * 0.45
-            );
-
-        });
-
-    }
-
-
-    // =================================================
-    // MOUSE DRAG
-    // =================================================
-
-    wrapper.addEventListener("pointerdown", (event) => {
-
-        /*
-            Don't start dragging when clicking directly
-            on one of the control buttons.
-        */
-
-        if (
-            event.target.closest(".marquee-control")
-        ) {
-            return;
         }
 
 
-        isDragging = true;
+        // -------------------------------------------------
+        // Resume
+        // -------------------------------------------------
 
-        isPaused = true;
+        function resume() {
 
-        startPointerX = event.clientX;
-
-        startPosition = position;
-
-        wrapper.setPointerCapture(event.pointerId);
-
-        wrapper.style.cursor = "grabbing";
-
-    });
-
-
-    wrapper.addEventListener("pointermove", (event) => {
-
-        if (!isDragging) {
-            return;
-        }
-
-        const delta =
-            event.clientX - startPointerX;
-
-        position =
-            startPosition + delta;
-
-        normalizePosition();
-
-        render();
-
-    });
-
-
-    function stopDragging(event) {
-
-        if (!isDragging) {
-            return;
-        }
-
-        isDragging = false;
-
-        wrapper.style.cursor = "";
-
-        try {
-
-            wrapper.releasePointerCapture(
-                event.pointerId
-            );
-
-        } catch (error) {
-            // Pointer capture may already be released.
-        }
-
-        /*
-            Resume autoplay after a short delay.
-            This makes manual dragging feel deliberate.
-        */
-
-        setTimeout(() => {
-
-            if (!wrapper.matches(":hover")) {
+            if (!isDragging) {
 
                 isPaused = false;
 
             }
 
-        }, 450);
-
-    }
-
-
-    wrapper.addEventListener(
-        "pointerup",
-        stopDragging
-    );
-
-    wrapper.addEventListener(
-        "pointercancel",
-        stopDragging
-    );
-
-
-    // =================================================
-    // TOUCH / SWIPE
-    // =================================================
-
-    wrapper.addEventListener(
-        "touchstart",
-        (event) => {
-
-            if (
-                event.target.closest(".marquee-control")
-            ) {
-                return;
-            }
-
-            isDragging = true;
-
-            isPaused = true;
-
-            startPointerX =
-                event.touches[0].clientX;
-
-            startPosition =
-                position;
-
-        },
-        {
-            passive: true
         }
-    );
 
 
-    wrapper.addEventListener(
-        "touchmove",
-        (event) => {
+        // -------------------------------------------------
+        // Hover
+        // -------------------------------------------------
+
+        wrapper.addEventListener(
+            "mouseenter",
+            pause
+        );
+
+
+        wrapper.addEventListener(
+            "mouseleave",
+            () => {
+
+                if (!isDragging) {
+
+                    resume();
+
+                }
+
+            }
+        );
+
+
+        // -------------------------------------------------
+        // Manual movement
+        // -------------------------------------------------
+
+        function moveBy(amount) {
+
+            position += amount;
+
+            normalizePosition();
+
+            render();
+
+        }
+
+
+        // -------------------------------------------------
+        // Next
+        // -------------------------------------------------
+
+        if (nextButton) {
+
+            nextButton.addEventListener(
+                "click",
+                (event) => {
+
+                    event.preventDefault();
+
+                    pause();
+
+                    moveBy(
+                        direction *
+                        groupWidth *
+                        stepMultiplier
+                    );
+
+                }
+            );
+
+        }
+
+
+        // -------------------------------------------------
+        // Previous
+        // -------------------------------------------------
+
+        if (previousButton) {
+
+            previousButton.addEventListener(
+                "click",
+                (event) => {
+
+                    event.preventDefault();
+
+                    pause();
+
+                    moveBy(
+                        -direction *
+                        groupWidth *
+                        stepMultiplier
+                    );
+
+                }
+            );
+
+        }
+
+
+        // =================================================
+        // 3. POINTER DRAG
+        // =================================================
+
+        wrapper.addEventListener(
+            "pointerdown",
+            (event) => {
+
+                /*
+                    Ignore arrow controls.
+                */
+
+                if (
+                    event.target.closest(
+                        ".marquee-control, .experience-marquee-control"
+                    )
+                ) {
+
+                    return;
+
+                }
+
+
+                clearTimeout(resumeTimer);
+
+
+                isDragging = true;
+
+                isPaused = true;
+
+
+                pointerStartX =
+                    event.clientX;
+
+                positionAtDragStart =
+                    position;
+
+
+                wrapper.setPointerCapture(
+                    event.pointerId
+                );
+
+
+                wrapper.style.cursor =
+                    "grabbing";
+
+            }
+        );
+
+
+        wrapper.addEventListener(
+            "pointermove",
+            (event) => {
+
+                if (!isDragging) {
+                    return;
+                }
+
+
+                const delta =
+                    event.clientX -
+                    pointerStartX;
+
+
+                position =
+                    positionAtDragStart +
+                    delta;
+
+
+                normalizePosition();
+
+                render();
+
+            }
+        );
+
+
+        function endPointerDrag(event) {
 
             if (!isDragging) {
                 return;
             }
 
-            const currentX =
-                event.touches[0].clientX;
-
-            const delta =
-                currentX - startPointerX;
-
-            position =
-                startPosition + delta;
-
-            normalizePosition();
-
-            render();
-
-        },
-        {
-            passive: true
-        }
-    );
-
-
-    wrapper.addEventListener(
-        "touchend",
-        () => {
 
             isDragging = false;
 
-            setTimeout(() => {
-
-                isPaused = false;
-
-            }, 450);
-
-        }
-    );
+            wrapper.style.cursor = "";
 
 
-    // =================================================
-    // RESIZE
-    // =================================================
+            try {
 
-    window.addEventListener(
-        "resize",
-        () => {
+                wrapper.releasePointerCapture(
+                    event.pointerId
+                );
+
+            } catch (error) {
+
+                // Pointer capture may already be released.
+
+            }
+
 
             /*
-                Re-measure the group because item widths
-                can change on responsive breakpoints.
+                Small delay before autoplay resumes.
             */
 
-            measure();
+            clearTimeout(resumeTimer);
 
-            normalizePosition();
 
-            render();
+            resumeTimer =
+                setTimeout(() => {
+
+                    if (!wrapper.matches(":hover")) {
+
+                        isPaused = false;
+
+                    }
+
+                }, 550);
 
         }
-    );
 
 
-    // =================================================
-    // INITIALIZE
-    // =================================================
+        wrapper.addEventListener(
+            "pointerup",
+            endPointerDrag
+        );
 
-    measure();
 
-    normalizePosition();
+        wrapper.addEventListener(
+            "pointercancel",
+            endPointerDrag
+        );
 
-    render();
 
-    animationFrame =
-        requestAnimationFrame(animate);
+        // =================================================
+        // 4. KEYBOARD ACCESS
+        // =================================================
+
+        wrapper.addEventListener(
+            "keydown",
+            (event) => {
+
+                /*
+                    Allow users who focus the marquee
+                    to use arrow keys.
+                */
+
+                if (event.key === "ArrowLeft") {
+
+                    event.preventDefault();
+
+                    pause();
+
+                    moveBy(
+                        -groupWidth *
+                        stepMultiplier
+                    );
+
+                }
+
+
+                if (event.key === "ArrowRight") {
+
+                    event.preventDefault();
+
+                    pause();
+
+                    moveBy(
+                        groupWidth *
+                        stepMultiplier
+                    );
+
+                }
+
+            }
+        );
+
+
+        // =================================================
+        // 5. RESIZE
+        // =================================================
+
+        let resizeTimer = null;
+
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                clearTimeout(resizeTimer);
+
+
+                resizeTimer =
+                    setTimeout(() => {
+
+                        measure();
+
+                        normalizePosition();
+
+                        render();
+
+                    }, 120);
+
+            }
+        );
+
+
+        // =================================================
+        // 6. INITIALIZE
+        // =================================================
+
+        measure();
+
+        initializePosition();
+
+        animationFrame =
+            requestAnimationFrame(animate);
+
+    });
+
+}
+
+
+// =====================================================
+// 7. TECHNOLOGY MARQUEE
+//    Right → Left
+// =====================================================
+
+initializeMarquee({
+
+    wrapperSelector: ".marquee-wrapper",
+
+    trackSelector: ".marquee-track",
+
+    groupSelector: ".marquee-group",
+
+    previousSelector: ".marquee-control-prev",
+
+    nextSelector: ".marquee-control-next",
+
+    direction: -1,
+
+    speed: 0.42
+
+});
+
+
+// =====================================================
+// 8. EXPERIENCE MARQUEE
+//    Left → Right
+// =====================================================
+
+initializeMarquee({
+
+    wrapperSelector:
+        ".experience-marquee-wrapper",
+
+    trackSelector:
+        ".experience-marquee-track",
+
+    groupSelector:
+        ".experience-marquee-group",
+
+    previousSelector:
+        ".experience-marquee-prev",
+
+    nextSelector:
+        ".experience-marquee-next",
+
+    direction: 1,
+
+    speed: 0.32
 
 });
