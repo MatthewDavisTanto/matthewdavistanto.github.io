@@ -1,1 +1,767 @@
-e
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Hotel Langham Database System | Matthew Davis Tanto
+    </title>
+
+    <meta
+        name="description"
+        content="Academic database design and Oracle SQL project modeled around a hotel reservation system."
+    >
+
+    <link
+        rel="stylesheet"
+        href="hotel-langham.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         BACK TO PORTFOLIO
+    ========================== -->
+
+    <a href="../../index.html">
+        ← Back to Portfolio
+    </a>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header>
+
+        <div>
+            DATABASE DESIGN · ORACLE SQL
+        </div>
+
+        <h1>
+            Hotel Langham
+            <strong>Database System.</strong>
+        </h1>
+
+        <p>
+            An academic database project modeling a hotel
+            reservation system using ERD, relational database
+            design, and Oracle SQL.
+        </p>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =========================
+             PROJECT OVERVIEW
+        ========================== -->
+
+        <section>
+
+            <h2>
+                Project Overview
+            </h2>
+
+            <p>
+                This project explored how a hotel reservation
+                operation could be represented as a relational
+                database. The system was modeled around hotel,
+                room, guest, reservation, employee, and payment
+                data.
+            </p>
+
+            <div>
+
+                <div>
+
+                    <strong>
+                        Project Type
+                    </strong>
+
+                    <span>
+                        Academic Database Project
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Database
+                    </strong>
+
+                    <span>
+                        Oracle SQL
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Entities
+                    </strong>
+
+                    <span>
+                        8 Tables
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BUSINESS CONTEXT
+        ========================== -->
+
+        <section>
+
+            <h2>
+                Business Context
+            </h2>
+
+            <p>
+                The database was designed around a hotel
+                reservation environment where multiple hotels,
+                rooms, guests, reservations, employees, and
+                payments need to be connected and managed
+                consistently.
+            </p>
+
+            <p>
+                The model supports relationships between hotel
+                properties, room types, individual rooms, guests,
+                reservations, reservation details, employees,
+                and payments.
+            </p>
+
+            <ul>
+
+                <li>
+                    Hotel & room management
+                </li>
+
+                <li>
+                    Guest & reservation records
+                </li>
+
+                <li>
+                    Multi-room reservations
+                </li>
+
+                <li>
+                    Payment records
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             DATABASE ARCHITECTURE
+        ========================== -->
+
+        <section class="database-architecture-section">
+
+            <h2>
+                Database Architecture
+            </h2>
+
+            <p>
+                The relational model consists of eight core
+                entities connected through primary and foreign
+                key relationships.
+            </p>
+
+
+            <div class="architecture-grid">
+
+                <div>
+
+                    <strong>
+                        HOTEL
+                    </strong>
+
+                    <span>
+                        hotel_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ROOM_TYPE
+                    </strong>
+
+                    <span>
+                        room_type_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ROOM
+                    </strong>
+
+                    <span>
+                        room_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        EMPLOYEE
+                    </strong>
+
+                    <span>
+                        employee_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        GUEST
+                    </strong>
+
+                    <span>
+                        guest_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        RESERVATION
+                    </strong>
+
+                    <span>
+                        reservation_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        RESERVATION_DETAIL
+                    </strong>
+
+                    <span>
+                        reservation_detail_id
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        PAYMENT
+                    </strong>
+
+                    <span>
+                        payment_id
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 ERD
+            ========================== -->
+
+            <div class="erd-section">
+
+                <div class="erd-header">
+
+                    <div>
+
+                        <span>
+                            DATABASE MODEL
+                        </span>
+
+                        <h3>
+                            Entity Relationship Diagram
+                        </h3>
+
+                    </div>
+
+                    <span>
+                        8 entities
+                    </span>
+
+                </div>
+
+
+                <div class="erd-viewer">
+
+                    <img
+                        src="images/erd-langham.png"
+                        alt="Hotel Langham database Entity Relationship Diagram"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <p class="erd-caption">
+                    Entity relationship model connecting hotel,
+                    room, guest, reservation, employee, and
+                    payment entities.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DATABASE IMPLEMENTATION
+        ========================== -->
+
+        <section>
+
+            <h2>
+                Database Implementation
+            </h2>
+
+            <p>
+                The ERD was translated into an Oracle relational
+                database using tables, primary keys, foreign keys,
+                and data integrity constraints.
+            </p>
+
+
+            <div class="implementation-grid">
+
+                <div>
+
+                    <span>
+                        TABLE DESIGN
+                    </span>
+
+                    <strong>
+                        8 relational tables
+                    </strong>
+
+                    <p>
+                        Each entity from the conceptual model
+                        was implemented as a relational table.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        RELATIONSHIPS
+                    </span>
+
+                    <strong>
+                        PK & FK constraints
+                    </strong>
+
+                    <p>
+                        Foreign keys establish relationships
+                        between hotels, rooms, reservations,
+                        guests, and payments.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        DATA INTEGRITY
+                    </span>
+
+                    <strong>
+                        Validation constraints
+                    </strong>
+
+                    <p>
+                        Constraints were used to maintain
+                        valid and consistent database records.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SELECTED SQL ANALYSIS
+        ========================== -->
+
+        <section class="sql-analysis-section">
+
+            <div class="section-intro">
+
+                <span>
+                    SELECTED SQL ANALYSIS
+                </span>
+
+                <h2>
+                    From database structure to
+                    business questions.
+                </h2>
+
+                <p>
+                    Selected queries demonstrate how the database
+                    can be used to answer operational questions
+                    through aggregation, joins, set operations,
+                    and subqueries.
+                </p>
+
+            </div>
+
+
+            <!-- QUERY PLACEHOLDERS -->
+
+            <div class="sql-showcase">
+
+                <!-- QUERY 01 -->
+
+                <article class="sql-card">
+
+                    <div class="sql-card-number">
+                        01
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            COUNT · JOIN · GROUP BY
+                        </span>
+
+                        <h3>
+                            Hotel capacity
+                        </h3>
+
+                        <p>
+                            How many rooms are available
+                            across each hotel?
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUERY 02 -->
+
+                <article class="sql-card">
+
+                    <div class="sql-card-number">
+                        02
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            MAX · JOIN · GROUP BY
+                        </span>
+
+                        <h3>
+                            Highest payment
+                        </h3>
+
+                        <p>
+                            What is the highest payment
+                            recorded for each hotel?
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUERY 03 -->
+
+                <article class="sql-card featured-sql">
+
+                    <div class="sql-card-number">
+                        03
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            FULL OUTER JOIN
+                        </span>
+
+                        <h3>
+                            Payment & reservation audit
+                        </h3>
+
+                        <p>
+                            How can payment and reservation
+                            records be compared, including
+                            unmatched records?
+                        </p>
+
+                        <small>
+                            My Contribution
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUERY 04 -->
+
+                <article class="sql-card">
+
+                    <div class="sql-card-number">
+                        04
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            UNION
+                        </span>
+
+                        <h3>
+                            Unique contact numbers
+                        </h3>
+
+                        <p>
+                            How can unique phone numbers
+                            across hotels and guests be combined?
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUERY 05 -->
+
+                <article class="sql-card featured-sql">
+
+                    <div class="sql-card-number">
+                        05
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            MINUS
+                        </span>
+
+                        <h3>
+                            Guests without reservations
+                        </h3>
+
+                        <p>
+                            Which registered guests have never
+                            made a reservation?
+                        </p>
+
+                        <small>
+                            My Contribution
+                        </small>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUERY 06 -->
+
+                <article class="sql-card">
+
+                    <div class="sql-card-number">
+                        06
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            SUBQUERY · AVG
+                        </span>
+
+                        <h3>
+                            Above-average payments
+                        </h3>
+
+                        <p>
+                            Which payment records are above
+                            the overall average?
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- QUERY 07 -->
+
+                <article class="sql-card featured-sql">
+
+                    <div class="sql-card-number">
+                        07
+                    </div>
+
+                    <div class="sql-card-content">
+
+                        <span>
+                            SUBQUERY · IN
+                        </span>
+
+                        <h3>
+                            Bogor hotel employees
+                        </h3>
+
+                        <p>
+                            Which employees are assigned to
+                            the hotel located in Bogor?
+                        </p>
+
+                        <small>
+                            My Contribution
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MY CONTRIBUTION
+        ========================== -->
+
+        <section>
+
+            <h2>
+                My Contribution
+            </h2>
+
+            <p>
+                Within the group project, I contributed to selected
+                SQL analysis and database views covering aggregate
+                functions, joins, set operations, and subqueries.
+            </p>
+
+            <ul>
+
+                <li>
+                    MIN / lowest room rate analysis
+                </li>
+
+                <li>
+                    FULL OUTER JOIN payment & reservation audit
+                </li>
+
+                <li>
+                    MINUS guest reservation analysis
+                </li>
+
+                <li>
+                    Subquery analysis for hotel employees
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =========================
+             WHAT I LEARNED
+        ========================== -->
+
+        <section>
+
+            <h2>
+                What I Learned
+            </h2>
+
+            <ul>
+
+                <li>
+                    How to translate a conceptual ERD into
+                    a relational Oracle database.
+                </li>
+
+                <li>
+                    How relationships between tables can be
+                    explored through different JOIN strategies.
+                </li>
+
+                <li>
+                    How aggregation, set operations, and
+                    subqueries can answer different business
+                    questions.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <a href="../../index.html">
+            ← Back to Portfolio
+        </a>
+
+    </footer>
+
+
+    <script src="hotel-langham.js"></script>
+
+</body>
+
+</html>
