@@ -1,6 +1,6 @@
 // =====================================================
 // SHOPEE A/B TESTING — IMAGE VIEWER
-// Zoom + Pan
+// Zoom + Pan + Boundary Control
 // =====================================================
 
 
@@ -65,9 +65,10 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
     const ZOOM_STEP = 0.25;
 
 
-    // -------------------------------------------------
-    // Update zoom label
-    // -------------------------------------------------
+    // =================================================
+    // HELPERS
+    // =================================================
+
 
     function updateZoomLabel() {
 
@@ -77,35 +78,145 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
     }
 
 
-    // -------------------------------------------------
-    // Apply transform
-    // -------------------------------------------------
+    function getBounds() {
 
-    function updateTransform() {
+        const viewerWidth =
+            viewer.clientWidth;
 
-        image.style.transform =
-            `translate3d(${translateX}px, ${translateY}px, 0) scale(${scale})`;
+        const viewerHeight =
+            viewer.clientHeight;
+
+
+        const imageWidth =
+            image.clientWidth * scale;
+
+        const imageHeight =
+            image.clientHeight * scale;
+
+
+        /*
+            How much the image exceeds the viewer.
+
+            Example:
+
+            Viewer = 1000px
+            Image   = 1500px
+
+            Maximum horizontal movement:
+
+            (1500 - 1000) / 2
+            = 250px
+        */
+
+        const maxX =
+            Math.max(
+                0,
+                (imageWidth - viewerWidth) / 2
+            );
+
+
+        const maxY =
+            Math.max(
+                0,
+                (imageHeight - viewerHeight) / 2
+            );
+
+
+        return {
+            maxX,
+            maxY
+        };
 
     }
 
 
-    // -------------------------------------------------
-    // Reset
-    // -------------------------------------------------
+    function clampPosition() {
 
-    function resetZoom() {
+        const {
+            maxX,
+            maxY
+        } = getBounds();
 
-        scale = 1;
 
-        translateX = 0;
+        translateX =
+            Math.max(
+                -maxX,
+                Math.min(
+                    translateX,
+                    maxX
+                )
+            );
 
-        translateY = 0;
 
-        image.style.cursor = "default";
+        translateY =
+            Math.max(
+                -maxY,
+                Math.min(
+                    translateY,
+                    maxY
+                )
+            );
+
+    }
+
+
+    function updateTransform() {
+
+        clampPosition();
+
+
+        image.style.transform =
+            `translate3d(
+                ${translateX}px,
+                ${translateY}px,
+                0
+            ) scale(${scale})`;
+
+    }
+
+
+    // =================================================
+    // ZOOM
+    // =================================================
+
+
+    function setZoom(newScale) {
+
+        scale =
+            Math.max(
+                MIN_SCALE,
+                Math.min(
+                    newScale,
+                    MAX_SCALE
+                )
+            );
+
+
+        /*
+            When returning to 100%,
+            completely recenter the image.
+        */
+
+        if (scale === 1) {
+
+            translateX = 0;
+
+            translateY = 0;
+
+        }
+
+
+        clampPosition();
 
         updateTransform();
 
         updateZoomLabel();
+
+
+        image.style.cursor =
+            scale > 1
+                ? "grab"
+                : "default";
 
     }
 
@@ -118,22 +229,9 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
         "click",
         () => {
 
-            scale =
-                Math.min(
-                    scale + ZOOM_STEP,
-                    MAX_SCALE
-                );
-
-            if (scale > 1) {
-
-                image.style.cursor =
-                    "grab";
-
-            }
-
-            updateTransform();
-
-            updateZoomLabel();
+            setZoom(
+                scale + ZOOM_STEP
+            );
 
         }
     );
@@ -147,46 +245,23 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
         "click",
         () => {
 
-            scale =
-                Math.max(
-                    scale - ZOOM_STEP,
-                    MIN_SCALE
-                );
-
-
-            /*
-                When returning to 100%,
-                reset the image position.
-            */
-
-            if (scale === 1) {
-
-                translateX = 0;
-
-                translateY = 0;
-
-                image.style.cursor =
-                    "default";
-
-            }
-
-            updateTransform();
-
-            updateZoomLabel();
+            setZoom(
+                scale - ZOOM_STEP
+            );
 
         }
     );
 
 
     // -------------------------------------------------
-    // Reset Button
+    // Reset
     // -------------------------------------------------
 
     resetButton.addEventListener(
         "click",
         () => {
 
-            resetZoom();
+            setZoom(1);
 
         }
     );
@@ -202,7 +277,9 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
         (event) => {
 
             if (scale <= 1) {
+
                 return;
+
             }
 
 
@@ -243,28 +320,26 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
         (event) => {
 
             if (!isDragging) {
+
                 return;
+
             }
 
 
             const deltaX =
-                event.clientX -
-                startX;
+                event.clientX - startX;
 
 
             const deltaY =
-                event.clientY -
-                startY;
+                event.clientY - startY;
 
 
             translateX =
-                startTranslateX +
-                deltaX;
+                startTranslateX + deltaX;
 
 
             translateY =
-                startTranslateY +
-                deltaY;
+                startTranslateY + deltaY;
 
 
             updateTransform();
@@ -276,7 +351,9 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
     function stopDragging(event) {
 
         if (!isDragging) {
+
             return;
+
         }
 
 
@@ -297,7 +374,9 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
 
 
         image.style.cursor =
-            "grab";
+            scale > 1
+                ? "grab"
+                : "default";
 
     }
 
@@ -315,7 +394,7 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
 
 
     // -------------------------------------------------
-    // Prevent browser image dragging
+    // Prevent native image dragging
     // -------------------------------------------------
 
     image.addEventListener(
@@ -328,10 +407,26 @@ document.querySelectorAll(".design-image-viewer").forEach((viewer) => {
     );
 
 
-    // -------------------------------------------------
-    // Initial state
-    // -------------------------------------------------
+    // =================================================
+    // RESIZE
+    // =================================================
 
-    resetZoom();
+    window.addEventListener(
+        "resize",
+        () => {
+
+            clampPosition();
+
+            updateTransform();
+
+        }
+    );
+
+
+    // =================================================
+    // INITIAL STATE
+    // =================================================
+
+    setZoom(1);
 
 });
