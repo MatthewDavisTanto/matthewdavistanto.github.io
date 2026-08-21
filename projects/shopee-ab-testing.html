@@ -161,128 +161,265 @@
 
 
         <!-- =========================
-             DESIGN A VS B
-        ========================== -->
+     DESIGN A VS DESIGN B
+========================== -->
 
-        <section>
+<section class="design-comparison-section">
 
-            <h2>
-                Design A vs Design B
-            </h2>
+    <div class="section-intro">
 
+        <span class="section-kicker">
+            DESIGN EXPLORATION
+        </span>
 
-            <article>
+        <h2>
+            Design A vs Design B
+        </h2>
 
-                <h3>
-                    Design A
-                </h3>
+        <p>
+            Two alternative navigation approaches were explored
+            to determine which interface better supported
+            efficient cart navigation.
+        </p>
 
-                <ul>
-
-                    <li>
-                        Main navigation options are displayed
-                        as buttons at the top.
-                    </li>
-
-                    <li>
-                        Sort By, Calendar, and Filter use
-                        pop-up interfaces.
-                    </li>
-
-                    <li>
-                        Filter categories use icons.
-                    </li>
-
-                </ul>
-
-            </article>
+    </div>
 
 
-            <article>
+    <!-- =========================
+         DESIGN A
+    ========================== -->
 
-                <h3>
-                    Design B
-                </h3>
+    <article class="design-study-card">
 
-                <ul>
-
-                    <li>
-                        Sort options are directly visible
-                        at the top.
-                    </li>
-
-                    <li>
-                        Filter categories use complete text labels.
-                    </li>
-
-                    <li>
-                        Calendar follows a more familiar
-                        calendar structure.
-                    </li>
-
-                </ul>
-
-            </article>
-
-        </section>
-
-
-        <!-- =========================
-             A/B TESTING
-        ========================== -->
-
-        <section>
-
-            <h2>
-                A/B Testing
-            </h2>
-
-            <p>
-                The two designs were presented to seven
-                groups to collect preference and qualitative
-                feedback.
-            </p>
-
+        <div class="design-study-header">
 
             <div>
 
+                <span class="design-study-label">
+                    DESIGN A
+                </span>
+
+                <h3>
+                    Compact navigation
+                </h3>
+
+            </div>
+
+            <span class="design-study-meta">
+                3111 × 1034 px
+            </span>
+
+        </div>
+
+
+        <div class="design-image-frame">
+
+            <img
+                src="images/shopee/design-a.png"
+                alt="Design A — Shopee Cart Navigation A/B Testing"
+                loading="lazy">
+
+        </div>
+
+
+        <div class="design-study-description">
+
+            <p>
+                Design A grouped the main navigation controls
+                at the top of the cart interface. Sort By,
+                Calendar, and Filter were accessed through
+                additional interface states.
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <!-- =========================
+         DESIGN B
+    ========================== -->
+
+    <article class="design-study-card">
+
+        <div class="design-study-header">
+
+            <div>
+
+                <span class="design-study-label">
+                    DESIGN B
+                </span>
+
+                <h3>
+                    Direct navigation
+                </h3>
+
+            </div>
+
+            <span class="design-study-meta">
+                3111 × 1489 px
+            </span>
+
+        </div>
+
+
+        <div class="design-image-frame">
+
+            <img
+                src="images/shopee/design-b.png"
+                alt="Design B — Shopee Cart Navigation A/B Testing"
+                loading="lazy">
+
+        </div>
+
+
+        <div class="design-study-description">
+
+            <p>
+                Design B exposed more sorting options directly
+                within the cart interface and used clearer
+                text-based navigation for filtering and date
+                selection.
+            </p>
+
+        </div>
+
+    </article>
+
+</section>
+
+        <!-- =========================
+     A/B TESTING
+========================== -->
+
+<section class="ab-testing-section">
+
+    <div class="section-intro">
+
+        <span class="section-kicker">
+            A/B TESTING
+        </span>
+
+        <h2>
+            User preference.
+        </h2>
+
+        <p>
+            Both designs were presented to seven participating
+            groups to compare overall preference and collect
+            qualitative feedback.
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         RESULT BARS
+    ========================== -->
+
+    <div class="ab-results">
+
+
+        <!-- DESIGN A -->
+
+        <div class="ab-result-card">
+
+            <div class="ab-result-header">
+
                 <div>
 
-                    <strong>
+                    <span class="ab-result-name">
                         Design A
-                    </strong>
-
-                    <span>
-                        3 / 7
                     </span>
 
-                    <small>
-                        42.8%
-                    </small>
+                    <span class="ab-result-count">
+                        3 of 7 responses
+                    </span>
 
                 </div>
 
+                <strong class="ab-result-percentage">
+                    42.8%
+                </strong>
 
-                <div>
+            </div>
 
-                    <strong>
-                        Design B
-                    </strong>
 
-                    <span>
-                        4 / 7
-                    </span>
+            <div class="ab-bar">
 
-                    <small>
-                        57.2%
-                    </small>
-
+                <div
+                    class="ab-bar-fill"
+                    style="--percentage: 42.8%;">
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
+
+        <!-- DESIGN B -->
+
+        <div class="ab-result-card">
+
+            <div class="ab-result-header">
+
+                <div>
+
+                    <span class="ab-result-name">
+                        Design B
+                    </span>
+
+                    <span class="ab-result-count">
+                        4 of 7 responses
+                    </span>
+
+                </div>
+
+                <strong class="ab-result-percentage">
+                    57.2%
+                </strong>
+
+            </div>
+
+
+            <div class="ab-bar">
+
+                <div
+                    class="ab-bar-fill"
+                    style="--percentage: 57.2%;">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         KEY TAKEAWAY
+    ========================== -->
+
+    <div class="ab-takeaway">
+
+        <span>
+            KEY TAKEAWAY
+        </span>
+
+        <strong>
+            Design B led by 14.4 percentage points.
+        </strong>
+
+        <p>
+            Design B received the majority preference,
+            with participants highlighting direct sorting
+            access, clearer filter labels, and a more
+            familiar calendar interaction.
+        </p>
+
+    </div>
+
+</section>
 
         <!-- =========================
              FEEDBACK
