@@ -1755,3 +1755,499 @@ body > footer a:hover {
     }
 
 }
+
+/* =====================================================
+   USER FEEDBACK
+===================================================== */
+
+.user-feedback-section {
+    padding-top: 105px;
+}
+
+
+/* =====================================================
+   FEEDBACK GRID
+===================================================== */
+
+.feedback-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-top: 42px;
+}
+
+
+/* =====================================================
+   FEEDBACK CARD
+===================================================== */
+
+.feedback-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 285px;
+
+    padding: 26px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    overflow:
+        hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+.feedback-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -80px;
+    right: -80px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent-soft);
+
+    opacity:
+        0.85;
+
+    pointer-events:
+        none;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.35s ease;
+}
+
+
+.feedback-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(40, 100, 232, 0.25);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+.feedback-card:hover::before {
+    transform:
+        scale(1.3);
+
+    opacity:
+        1;
+}
+
+
+/* =====================================================
+   FEEDBACK CARD HEADER
+===================================================== */
+
+.feedback-card-top {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        24px;
+}
+
+
+.feedback-tag {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid #d8e5ff;
+
+    border-radius:
+        var(--radius-pill);
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.3px;
+}
+
+
+.feedback-type {
+    color:
+        var(--text-muted);
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.5px;
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.feedback-card blockquote {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    margin:
+        0 0 22px;
+
+    color:
+        var(--text);
+
+    font-size:
+        16px;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.65;
+
+    letter-spacing:
+        -0.15px;
+}
+
+
+.feedback-card blockquote::before {
+    content:
+        "“";
+
+    display:
+        block;
+
+    margin-bottom:
+        -7px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        42px;
+
+    line-height:
+        1;
+
+    font-weight:
+        800;
+}
+
+
+/* =====================================================
+   FEEDBACK SUMMARY
+===================================================== */
+
+.feedback-summary {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    margin-top:
+        auto;
+
+    margin-bottom:
+        0 !important;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        var(--text-muted) !important;
+
+    font-size:
+        12px !important;
+
+    line-height:
+        1.7 !important;
+}
+
+
+/* =====================================================
+   DESIGN B EMPHASIS
+===================================================== */
+
+.feedback-positive {
+    border-color:
+        #d9e6ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8fbff 100%
+        );
+}
+
+
+.feedback-positive .feedback-tag {
+    background:
+        #eaf1ff;
+
+    border-color:
+        #d2e0ff;
+}
+
+
+/* =====================================================
+   FEEDBACK PATTERN SUMMARY
+===================================================== */
+
+.feedback-pattern {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        18px;
+
+    margin-top:
+        45px;
+}
+
+
+.feedback-pattern-column {
+    padding:
+        30px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.feedback-pattern-label {
+    display:
+        inline-block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.8px;
+}
+
+
+.feedback-pattern-column h3 {
+    margin:
+        0 0 20px;
+
+    font-size:
+        25px;
+
+    line-height:
+        1.1;
+
+    letter-spacing:
+        -0.8px;
+}
+
+
+.feedback-pattern-column ul {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    list-style:
+        none;
+}
+
+
+.feedback-pattern-column li {
+    position:
+        relative;
+
+    padding-left:
+        23px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+}
+
+
+.feedback-pattern-column li::before {
+    content:
+        "✓";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    color:
+        var(--accent);
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .feedback-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .feedback-pattern {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .feedback-card {
+        min-height:
+            0;
+
+        padding:
+            23px;
+    }
+
+    .feedback-card-top {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+    }
+
+    .feedback-card blockquote {
+        font-size:
+            15px;
+    }
+
+    .feedback-pattern-column {
+        padding:
+            23px;
+    }
+
+    .feedback-pattern-column h3 {
+        font-size:
+            22px;
+    }
+
+}
