@@ -1082,14 +1082,6 @@ body > footer a:hover {
             35px;
     }
 
-
-    main section:nth-of-type(2) h2 {
-
-        position:
-            static;
-    }
-
-
     main section:first-child > div {
 
         grid-template-columns:
