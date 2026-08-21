@@ -200,16 +200,19 @@ body > a:first-child:hover {
 ===================================================== */
 
 header {
-
-    position:
-        relative;
+    position: relative;
 
     padding:
-        95px 0
-        105px;
+        95px 0 105px;
 
     max-width:
         900px;
+
+    margin:
+        0 auto;
+
+    text-align:
+        center;
 }
 
 
@@ -257,6 +260,9 @@ header > div {
         inline-flex;
 
     align-items:
+        center;
+
+    justify-content:
         center;
 
     gap:
@@ -325,6 +331,9 @@ header > p {
 
     max-width:
         650px;
+
+    margin:
+        0 auto;
 
     color:
         var(--text-soft);
@@ -523,16 +532,9 @@ main section:nth-of-type(2) {
 
 main section:nth-of-type(2) h2 {
 
-    position:
-        sticky;
-
-    top:
-        110px;
-
     margin-bottom:
         0;
 }
-
 
 main section:nth-of-type(2) p {
 
