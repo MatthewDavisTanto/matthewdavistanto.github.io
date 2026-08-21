@@ -1,1 +1,1241 @@
+/* =====================================================
+   MATTHEW DAVIS TANTO
+   SHOPEE A/B TESTING — PROJECT PAGE
+===================================================== */
 
+
+/* =====================================================
+   1. DESIGN TOKENS
+===================================================== */
+
+:root {
+
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --surface-soft: #f1f4f8;
+
+    --text: #101828;
+    --text-soft: #475467;
+    --text-muted: #667085;
+
+    --accent: #2864e8;
+    --accent-dark: #1d4ed8;
+    --accent-soft: #eef4ff;
+
+    --border: #dfe4ec;
+    --border-dark: #cbd5df;
+
+    --dark: #101828;
+
+    --container: 1040px;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-pill: 999px;
+
+    --shadow-sm:
+        0 6px 20px rgba(16, 24, 40, 0.05);
+
+    --shadow-md:
+        0 18px 45px rgba(16, 24, 40, 0.08);
+
+    --shadow-lg:
+        0 28px 70px rgba(16, 24, 40, 0.12);
+
+    --transition:
+        0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+
+/* =====================================================
+   2. RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        "Inter",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
+
+    line-height:
+        1.7;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+    overflow-x:
+        hidden;
+}
+
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   3. PAGE CONTAINER
+===================================================== */
+
+body > a:first-child,
+main,
+body > footer {
+    width:
+        min(
+            var(--container),
+            calc(100% - 50px)
+        );
+
+    margin:
+        0 auto;
+}
+
+
+/* =====================================================
+   4. BACK BUTTON
+===================================================== */
+
+body > a:first-child {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-top:
+        35px;
+
+    padding:
+        10px 16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-pill);
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        0 5px 15px rgba(16, 24, 40, 0.035);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition),
+        color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+body > a:first-child:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--surface);
+
+    border-color:
+        var(--accent);
+
+    color:
+        var(--accent);
+
+    box-shadow:
+        0 10px 25px rgba(40, 100, 232, 0.10);
+}
+
+
+/* =====================================================
+   5. PROJECT HERO
+===================================================== */
+
+header {
+
+    position:
+        relative;
+
+    padding:
+        95px 0
+        105px;
+
+    max-width:
+        900px;
+}
+
+
+header::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        430px;
+
+    height:
+        430px;
+
+    top:
+        -130px;
+
+    right:
+        -190px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #eaf1ff 0%,
+            rgba(238, 244, 255, 0) 72%
+        );
+
+    pointer-events:
+        none;
+
+    z-index:
+        -1;
+}
+
+
+header > div {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        22px;
+}
+
+
+header > div::before {
+
+    content:
+        "";
+
+    width:
+        26px;
+
+    height:
+        1px;
+
+    background:
+        var(--accent);
+}
+
+
+header h1 {
+
+    max-width:
+        850px;
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            88px
+        );
+
+    line-height:
+        0.96;
+
+    letter-spacing:
+        -5px;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        32px;
+}
+
+
+header > p {
+
+    max-width:
+        650px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        18px;
+
+    line-height:
+        1.8;
+}
+
+
+/* =====================================================
+   6. GENERAL SECTION
+===================================================== */
+
+main section {
+
+    padding:
+        105px 0;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+main section h2 {
+
+    margin-bottom:
+        32px;
+
+    font-size:
+        clamp(
+            35px,
+            4vw,
+            52px
+        );
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -2.5px;
+
+    font-weight:
+        800;
+}
+
+
+main section p {
+
+    max-width:
+        720px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.85;
+
+    margin-bottom:
+        22px;
+}
+
+
+main section p:last-child {
+    margin-bottom:
+        0;
+}
+
+
+/* =====================================================
+   7. PROJECT OVERVIEW
+===================================================== */
+
+main section:first-child {
+
+    padding-top:
+        95px;
+}
+
+
+main section:first-child > div {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        16px;
+
+    margin-top:
+        40px;
+}
+
+
+main section:first-child > div > div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        6px;
+
+    padding:
+        22px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+main section:first-child > div > div:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(40, 100, 232, 0.25);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+main section:first-child strong {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        1.4px;
+
+    text-transform:
+        uppercase;
+}
+
+
+main section:first-child span {
+
+    color:
+        var(--text);
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+}
+
+
+/* =====================================================
+   8. THE PROBLEM
+===================================================== */
+
+main section:nth-of-type(2) {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    gap:
+        90px;
+
+    align-items:
+        start;
+}
+
+
+main section:nth-of-type(2) h2 {
+
+    position:
+        sticky;
+
+    top:
+        110px;
+
+    margin-bottom:
+        0;
+}
+
+
+main section:nth-of-type(2) p {
+
+    max-width:
+        650px;
+}
+
+
+main section:nth-of-type(2) ul {
+
+    margin-top:
+        25px;
+
+    padding-left:
+        0;
+
+    list-style:
+        none;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        10px;
+}
+
+
+main section:nth-of-type(2) li {
+
+    padding:
+        14px 16px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--surface);
+
+    border-radius:
+        12px;
+
+    color:
+        var(--text);
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+}
+
+
+/* =====================================================
+   9. DESIGN A VS B
+===================================================== */
+
+main section:nth-of-type(3) > article {
+
+    padding:
+        30px;
+
+    margin-top:
+        18px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+main section:nth-of-type(3) > article:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(40, 100, 232, 0.25);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+main section:nth-of-type(3) > article h3 {
+
+    margin-bottom:
+        18px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        21px;
+
+    font-weight:
+        800;
+}
+
+
+main section:nth-of-type(3) ul {
+
+    padding-left:
+        20px;
+
+    color:
+        var(--text-soft);
+}
+
+
+main section:nth-of-type(3) li {
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        14px;
+}
+
+
+/* =====================================================
+   10. A/B TESTING RESULT
+===================================================== */
+
+main section:nth-of-type(4) > div {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        18px;
+
+    margin-top:
+        45px;
+}
+
+
+main section:nth-of-type(4) > div > div {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-height:
+        210px;
+
+    padding:
+        30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--surface);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    overflow:
+        hidden;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+main section:nth-of-type(4) > div > div::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    top:
+        -95px;
+
+    right:
+        -95px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent-soft);
+}
+
+
+main section:nth-of-type(4) > div > div:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(40, 100, 232, 0.28);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+main section:nth-of-type(4) strong {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+main section:nth-of-type(4) span {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    margin-top:
+        12px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        45px;
+
+    line-height:
+        1;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -2px;
+}
+
+
+main section:nth-of-type(4) small {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    margin-top:
+        10px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+}
+
+
+/* =====================================================
+   11. FEEDBACK
+===================================================== */
+
+main section:nth-of-type(5) {
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(238, 244, 255, 0.35) 100%
+        );
+}
+
+
+main section:nth-of-type(5) p {
+
+    max-width:
+        760px;
+
+    padding-left:
+        25px;
+
+    border-left:
+        3px solid var(--accent);
+}
+
+
+/* =====================================================
+   12. RESULT
+===================================================== */
+
+main section:nth-of-type(6) {
+
+    background:
+        var(--surface);
+}
+
+
+main section:nth-of-type(6) p:first-of-type {
+
+    max-width:
+        800px;
+
+    color:
+        var(--text);
+
+    font-size:
+        23px;
+
+    line-height:
+        1.5;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.5px;
+}
+
+
+/* =====================================================
+   13. LEARNING
+===================================================== */
+
+main section:nth-of-type(7) ul {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        14px;
+
+    padding:
+        0;
+
+    list-style:
+        none;
+}
+
+
+main section:nth-of-type(7) li {
+
+    padding:
+        22px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.7;
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+
+main section:nth-of-type(7) li:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(40, 100, 232, 0.25);
+
+    box-shadow:
+        var(--shadow-md);
+
+    color:
+        var(--text);
+}
+
+
+/* =====================================================
+   14. FOOTER
+===================================================== */
+
+body > footer {
+
+    width:
+        min(
+            var(--container),
+            calc(100% - 50px)
+        );
+
+    margin:
+        0 auto;
+
+    padding:
+        30px 0 45px;
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+}
+
+
+body > footer a {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    font-weight:
+        600;
+
+    transition:
+        color var(--transition),
+        transform var(--transition);
+}
+
+
+body > footer a:hover {
+
+    color:
+        var(--accent);
+
+    transform:
+        translateX(-3px);
+}
+
+
+/* =====================================================
+   15. RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    body > a:first-child,
+    main,
+    body > footer {
+
+        width:
+            calc(100% - 40px);
+    }
+
+
+    header {
+
+        padding:
+            75px 0 80px;
+    }
+
+
+    header h1 {
+
+        font-size:
+            clamp(
+                48px,
+                9vw,
+                72px
+            );
+
+        letter-spacing:
+            -4px;
+    }
+
+
+    main section:nth-of-type(2) {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            35px;
+    }
+
+
+    main section:nth-of-type(2) h2 {
+
+        position:
+            static;
+    }
+
+
+    main section:first-child > div {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    main section:nth-of-type(7) ul {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* =====================================================
+   16. RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    body > a:first-child,
+    main,
+    body > footer {
+
+        width:
+            calc(100% - 30px);
+    }
+
+
+    body > a:first-child {
+
+        margin-top:
+            20px;
+
+        font-size:
+            12px;
+    }
+
+
+    header {
+
+        padding:
+            65px 0 70px;
+    }
+
+
+    header > div {
+
+        font-size:
+            9px;
+
+        letter-spacing:
+            1.5px;
+    }
+
+
+    header h1 {
+
+        font-size:
+            clamp(
+                43px,
+                12vw,
+                58px
+            );
+
+        letter-spacing:
+            -3px;
+
+        margin-bottom:
+            24px;
+    }
+
+
+    header > p {
+
+        font-size:
+            15px;
+    }
+
+
+    main section {
+
+        padding:
+            75px 0;
+    }
+
+
+    main section h2 {
+
+        font-size:
+            37px;
+
+        letter-spacing:
+            -2px;
+    }
+
+
+    main section:nth-of-type(2) ul {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    main section:nth-of-type(3) > article {
+
+        padding:
+            23px;
+    }
+
+
+    main section:nth-of-type(4) > div {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    main section:nth-of-type(4) span {
+
+        font-size:
+            39px;
+    }
+
+
+    main section:nth-of-type(6) p:first-of-type {
+
+        font-size:
+            19px;
+    }
+
+}
+
+
+/* =====================================================
+   17. REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        transition:
+            none !important;
+    }
+
+}
