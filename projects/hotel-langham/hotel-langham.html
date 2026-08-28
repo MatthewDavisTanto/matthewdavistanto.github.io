@@ -461,29 +461,143 @@
 
                 <!-- QUERY 01 -->
 
-                <article class="sql-card">
-
+                <article class="sql-card sql-supporting">
+                
                     <div class="sql-card-number">
                         01
                     </div>
-
+                
                     <div class="sql-card-content">
-
+                
                         <span>
                             COUNT · JOIN · GROUP BY
                         </span>
-
+                
                         <h3>
                             Hotel capacity
                         </h3>
-
-                        <p>
-                            How many rooms are available
-                            across each hotel?
+                
+                        <p class="sql-question">
+                            How many rooms are associated
+                            with each hotel?
                         </p>
-
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT h.hotel_name,
+                       COUNT(r.room_id) AS TotalRooms
+                FROM hotel h
+                JOIN room r
+                ON h.hotel_id = r.hotel_id
+                GROUP BY h.hotel_name;</code></pre>
+                
+                        </div>
+                
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                                    <span>Hotel</span>
+                                    <span>Total Rooms</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Makassar</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Yogyakarta</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Medan</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Semarang</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Bandung</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Lombok</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Surabaya</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Jakarta Premium</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Bali</span>
+                                    <span>1</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>The Langham Batam</span>
+                                    <span>1</span>
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Combines HOTEL and ROOM records using JOIN,
+                                then uses COUNT and GROUP BY to calculate
+                                the number of room records associated with
+                                each hotel.
+                            </p>
+                
+                        </div>
+                
+                
+                        <div class="sql-note">
+                
+                            <span>
+                                DATASET NOTE
+                            </span>
+                
+                            <p>
+                                The academic dataset contains one room record
+                                for each hotel, resulting in a count of 1 per
+                                branch.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
+                
                 </article>
 
 
