@@ -1703,3 +1703,443 @@ body > footer a:hover {
     }
 
 }
+
+/* =====================================================
+   SQL SHOWCASE — DETAILED QUERY VIEW
+===================================================== */
+
+
+/* =====================================================
+   1. SUPPORTING SQL CARD
+===================================================== */
+
+.sql-supporting {
+
+    grid-column:
+        1 / -1;
+}
+
+
+/* =====================================================
+   2. SQL QUESTION
+===================================================== */
+
+.sql-question {
+
+    margin-bottom:
+        24px !important;
+
+    color:
+        var(--text) !important;
+
+    font-size:
+        15px !important;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.6 !important;
+}
+
+
+/* =====================================================
+   3. CODE BLOCK
+===================================================== */
+
+.sql-code-block {
+
+    margin-top:
+        24px;
+
+    border:
+        1px solid #1d2939;
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+
+    background:
+        #101828;
+
+    box-shadow:
+        0 12px 30px rgba(16, 24, 40, 0.10);
+}
+
+
+.sql-block-label {
+
+    display:
+        block;
+
+    padding:
+        10px 15px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        #17233f;
+
+    color:
+        #98a2b3;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.6px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.sql-code-block pre {
+
+    margin:
+        0;
+
+    padding:
+        22px;
+
+    overflow-x:
+        auto;
+
+    white-space:
+        pre;
+
+    color:
+        #e5e7eb;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.8;
+}
+
+
+.sql-code-block code {
+
+    font-family:
+        inherit;
+}
+
+
+/* =====================================================
+   4. OUTPUT BLOCK
+===================================================== */
+
+.sql-output-block {
+
+    margin-top:
+        24px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--surface);
+}
+
+
+.sql-output-table {
+
+    width:
+        100%;
+}
+
+
+/* =====================================================
+   5. OUTPUT ROW
+===================================================== */
+
+.sql-output-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 120px;
+
+    gap:
+        20px;
+
+    padding:
+        13px 15px;
+
+    border-bottom:
+        1px solid var(--border);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.5;
+}
+
+
+.sql-output-row:last-child {
+
+    border-bottom:
+        0;
+}
+
+
+.sql-output-row span:first-child {
+
+    min-width:
+        0;
+
+    overflow-wrap:
+        anywhere;
+}
+
+
+.sql-output-row span:last-child {
+
+    text-align:
+        right;
+
+    font-weight:
+        600;
+
+    color:
+        var(--text);
+}
+
+
+/* =====================================================
+   6. OUTPUT HEADER
+===================================================== */
+
+.sql-output-header {
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.2px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.sql-output-header span:last-child {
+
+    color:
+        var(--text-muted);
+}
+
+
+/* =====================================================
+   7. INSIGHT
+===================================================== */
+
+.sql-insight {
+
+    margin-top:
+        24px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid #d8e5ff;
+
+    border-radius:
+        14px;
+
+    background:
+        var(--accent-soft);
+}
+
+
+.sql-insight .sql-block-label {
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        var(--accent);
+
+    margin-bottom:
+        8px;
+}
+
+
+.sql-insight p {
+
+    margin:
+        0 !important;
+
+    color:
+        var(--text-soft) !important;
+
+    font-size:
+        13px !important;
+
+    line-height:
+        1.7 !important;
+}
+
+
+/* =====================================================
+   8. DATASET NOTE
+===================================================== */
+
+.sql-note {
+
+    margin-top:
+        14px;
+
+    padding:
+        16px 18px;
+
+    border-left:
+        3px solid var(--border-dark);
+
+    background:
+        rgba(255, 255, 255, 0.65);
+}
+
+
+.sql-note > span {
+
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.4px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.sql-note p {
+
+    margin:
+        0 !important;
+
+    color:
+        var(--text-muted) !important;
+
+    font-size:
+        12px !important;
+
+    line-height:
+        1.65 !important;
+}
+
+
+/* =====================================================
+   9. SUPPORTING CARD VISUAL
+===================================================== */
+
+.sql-supporting {
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #fafcff 100%
+        );
+}
+
+
+/* =====================================================
+   10. RESPONSIVE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .sql-code-block pre {
+
+        padding:
+            18px;
+
+        font-size:
+            11px;
+    }
+
+
+    .sql-output-row {
+
+        grid-template-columns:
+            minmax(0, 1fr) 90px;
+
+        gap:
+            12px;
+
+        padding:
+            11px 12px;
+
+        font-size:
+            11px;
+    }
+
+
+    .sql-insight {
+
+        padding:
+            17px;
+    }
+
+
+    .sql-note {
+
+        padding:
+            14px 15px;
+    }
+
+}
