@@ -626,30 +626,246 @@
 
                 <!-- QUERY 02 -->
 
-                <article class="sql-card">
-
-                    <div class="sql-card-number">
-                        02
+                <details class="sql-card featured-sql">
+                
+                    <summary class="sql-card-summary">
+                
+                        <div class="sql-card-number">
+                            02
+                        </div>
+                
+                        <div class="sql-card-preview">
+                
+                            <span>
+                                MAX · JOIN · GROUP BY
+                            </span>
+                
+                            <h3>
+                                Highest payment
+                            </h3>
+                
+                            <p>
+                                What is the highest payment
+                                recorded for each hotel?
+                            </p>
+                
+                        </div>
+                
+                        <div class="sql-card-toggle"
+                             aria-hidden="true">
+                            +
+                        </div>
+                
+                    </summary>
+                
+                
+                    <div class="sql-card-details">
+                
+                
+                        <!-- SQL -->
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT h.hotel_name,
+                       MAX(p.amount) AS HighestPayment
+                FROM hotel h
+                JOIN room rm
+                ON h.hotel_id = rm.hotel_id
+                JOIN reservation_detail rd
+                ON rm.room_id = rd.room_id
+                JOIN reservation r
+                ON rd.reservation_id = r.reservation_id
+                JOIN payment p
+                ON r.reservation_id = p.reservation_id
+                GROUP BY h.hotel_name;</code></pre>
+                
+                        </div>
+                
+                
+                        <!-- RESULT -->
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                    <span>
+                                        Highest Payment
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Makassar
+                                    </span>
+                
+                                    <span>
+                                        10,000,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Yogyakarta
+                                    </span>
+                
+                                    <span>
+                                        4,200,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Medan
+                                    </span>
+                
+                                    <span>
+                                        5,200,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Semarang
+                                    </span>
+                
+                                    <span>
+                                        3,200,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Bandung
+                                    </span>
+                
+                                    <span>
+                                        3,500,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Lombok
+                                    </span>
+                
+                                    <span>
+                                        2,500,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Surabaya
+                                    </span>
+                
+                                    <span>
+                                        2,800,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Bali
+                                    </span>
+                
+                                    <span>
+                                        2,800,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        The Langham Batam
+                                    </span>
+                
+                                    <span>
+                                        12,000,000
+                                    </span>
+                
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <!-- INSIGHT -->
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Combines five related tables through JOINs,
+                                then uses MAX and GROUP BY to identify the
+                                highest recorded payment for each hotel.
+                            </p>
+                
+                        </div>
+                
+                
+                        <!-- CONTRIBUTION NOTE -->
+                
+                        <div class="sql-note">
+                
+                            <span>
+                                TECHNICAL NOTE
+                            </span>
+                
+                            <p>
+                                The query follows the relationship path from
+                                HOTEL to ROOM, RESERVATION_DETAIL, RESERVATION,
+                                and finally PAYMENT.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
-                    <div class="sql-card-content">
-
-                        <span>
-                            MAX · JOIN · GROUP BY
-                        </span>
-
-                        <h3>
-                            Highest payment
-                        </h3>
-
-                        <p>
-                            What is the highest payment
-                            recorded for each hotel?
-                        </p>
-
-                    </div>
-
-                </article>
+                
+                </details>
 
 
                 <!-- QUERY 03 -->
