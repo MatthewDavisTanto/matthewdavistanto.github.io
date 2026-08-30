@@ -1289,94 +1289,439 @@
 
                 <!-- QUERY 05 -->
 
-                <article class="sql-card featured-sql">
-
-                    <div class="sql-card-number">
-                        05
+                <details class="sql-card featured-sql">
+                
+                    <summary class="sql-card-summary">
+                
+                        <div class="sql-card-number">
+                            05
+                        </div>
+                
+                        <div class="sql-card-preview">
+                
+                            <span>
+                                MINUS
+                            </span>
+                
+                            <h3>
+                                Guests without reservations
+                            </h3>
+                
+                            <p>
+                                Which registered guests have never
+                                made a reservation?
+                            </p>
+                
+                            <small>
+                                My Contribution
+                            </small>
+                
+                        </div>
+                
+                        <div class="sql-card-toggle"
+                             aria-hidden="true">
+                            +
+                        </div>
+                
+                    </summary>
+                
+                
+                    <div class="sql-card-details">
+                
+                
+                        <!-- SQL -->
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT guest_id
+                FROM guest
+                
+                MINUS
+                
+                SELECT guest_id
+                FROM reservation;</code></pre>
+                
+                        </div>
+                
+                
+                        <!-- RESULT -->
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                
+                                    <span>
+                                        Guest ID
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        GST011
+                                    </span>
+                
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <!-- INSIGHT -->
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Identifies registered guests whose IDs
+                                do not appear in the reservation table.
+                                This allows the system to identify guests
+                                who have not yet made a reservation.
+                            </p>
+                
+                        </div>
+                
+                
+                        <!-- CONTRIBUTION -->
+                
+                        <div class="sql-contribution">
+                
+                            <span>
+                                MY CONTRIBUTION
+                            </span>
+                
+                            <p>
+                                I implemented this view using the MINUS
+                                set operator to compare guest records
+                                against reservation records.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
-                    <div class="sql-card-content">
-
-                        <span>
-                            MINUS
-                        </span>
-
-                        <h3>
-                            Guests without reservations
-                        </h3>
-
-                        <p>
-                            Which registered guests have never
-                            made a reservation?
-                        </p>
-
-                        <small>
-                            My Contribution
-                        </small>
-
-                    </div>
-
-                </article>
+                
+                </details>
 
 
                 <!-- QUERY 06 -->
 
-                <article class="sql-card">
-
-                    <div class="sql-card-number">
-                        06
+                <details class="sql-card featured-sql">
+                
+                    <summary class="sql-card-summary">
+                
+                        <div class="sql-card-number">
+                            06
+                        </div>
+                
+                        <div class="sql-card-preview">
+                
+                            <span>
+                                SUBQUERY · AVG
+                            </span>
+                
+                            <h3>
+                                Above-average payments
+                            </h3>
+                
+                            <p>
+                                Which payment records are above
+                                the overall average?
+                            </p>
+                
+                        </div>
+                
+                        <div class="sql-card-toggle"
+                             aria-hidden="true">
+                            +
+                        </div>
+                
+                    </summary>
+                
+                
+                    <div class="sql-card-details">
+                
+                
+                        <!-- SQL -->
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT payment_id,
+                       amount
+                FROM payment
+                WHERE amount >
+                (
+                    SELECT AVG(amount)
+                    FROM payment
+                );</code></pre>
+                
+                        </div>
+                
+                
+                        <!-- RESULT -->
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                
+                                    <span>
+                                        Payment ID
+                                    </span>
+                
+                                    <span>
+                                        Amount
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        PAY006
+                                    </span>
+                
+                                    <span>
+                                        5,200,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        PAY007
+                                    </span>
+                
+                                    <span>
+                                        10,000,000
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        PAY010
+                                    </span>
+                
+                                    <span>
+                                        12,000,000
+                                    </span>
+                
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <!-- INSIGHT -->
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Calculates the overall average payment
+                                using a subquery, then returns only
+                                payment records whose amount is higher
+                                than that average.
+                            </p>
+                
+                        </div>
+                
+                
+                        <!-- TECHNICAL NOTE -->
+                
+                        <div class="sql-note">
+                
+                            <span>
+                                TECHNICAL NOTE
+                            </span>
+                
+                            <p>
+                                AVG() is calculated inside the subquery
+                                and its single result is used as the
+                                comparison threshold in the outer query.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
-                    <div class="sql-card-content">
-
-                        <span>
-                            SUBQUERY · AVG
-                        </span>
-
-                        <h3>
-                            Above-average payments
-                        </h3>
-
-                        <p>
-                            Which payment records are above
-                            the overall average?
-                        </p>
-
-                    </div>
-
-                </article>
+                
+                </details>
 
 
                 <!-- QUERY 07 -->
 
-                <article class="sql-card featured-sql">
-
-                    <div class="sql-card-number">
-                        07
+                <details class="sql-card featured-sql">
+                
+                    <summary class="sql-card-summary">
+                
+                        <div class="sql-card-number">
+                            07
+                        </div>
+                
+                        <div class="sql-card-preview">
+                
+                            <span>
+                                SUBQUERY · IN
+                            </span>
+                
+                            <h3>
+                                Bogor hotel employees
+                            </h3>
+                
+                            <p>
+                                Which employees are assigned to
+                                the hotel located in Bogor?
+                            </p>
+                
+                            <small>
+                                My Contribution
+                            </small>
+                
+                        </div>
+                
+                        <div class="sql-card-toggle"
+                             aria-hidden="true">
+                            +
+                        </div>
+                
+                    </summary>
+                
+                
+                    <div class="sql-card-details">
+                
+                
+                        <!-- SQL -->
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT employee_name,
+                       position
+                FROM employee
+                WHERE hotel_id IN
+                (
+                    SELECT hotel_id
+                    FROM hotel
+                    WHERE city = 'Bogor'
+                );</code></pre>
+                
+                        </div>
+                
+                
+                        <!-- RESULT -->
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                
+                                    <span>
+                                        Employee
+                                    </span>
+                
+                                    <span>
+                                        Position
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        Michael Tan Wijaya
+                                    </span>
+                
+                                    <span>
+                                        General Manager
+                                    </span>
+                
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <!-- INSIGHT -->
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Uses a subquery to first identify the
+                                hotel located in Bogor, then retrieves
+                                employees assigned to that hotel through
+                                the matching hotel ID.
+                            </p>
+                
+                        </div>
+                
+                
+                        <!-- CONTRIBUTION -->
+                
+                        <div class="sql-contribution">
+                
+                            <span>
+                                MY CONTRIBUTION
+                            </span>
+                
+                            <p>
+                                I implemented this query using an IN
+                                subquery to connect hotel location
+                                information with employee records.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
-                    <div class="sql-card-content">
-
-                        <span>
-                            SUBQUERY · IN
-                        </span>
-
-                        <h3>
-                            Bogor hotel employees
-                        </h3>
-
-                        <p>
-                            Which employees are assigned to
-                            the hotel located in Bogor?
-                        </p>
-
-                        <small>
-                            My Contribution
-                        </small>
-
-                    </div>
-
-                </article>
+                
+                </details>
 
             </div>
 
