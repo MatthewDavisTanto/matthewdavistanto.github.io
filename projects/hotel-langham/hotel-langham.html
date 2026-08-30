@@ -1045,30 +1045,246 @@
 
                 <!-- QUERY 04 -->
 
-                <article class="sql-card">
-
-                    <div class="sql-card-number">
-                        04
+                <details class="sql-card">
+                
+                    <summary class="sql-card-summary">
+                
+                        <div class="sql-card-number">
+                            04
+                        </div>
+                
+                        <div class="sql-card-preview">
+                
+                            <span>
+                                UNION
+                            </span>
+                
+                            <h3>
+                                Unique contact numbers
+                            </h3>
+                
+                            <p>
+                                How can unique phone numbers
+                                across hotels and guests be combined?
+                            </p>
+                
+                        </div>
+                
+                        <div class="sql-card-toggle"
+                             aria-hidden="true">
+                            +
+                        </div>
+                
+                    </summary>
+                
+                
+                    <div class="sql-card-details">
+                
+                
+                        <!-- SQL -->
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT phone
+                FROM hotel
+                
+                UNION
+                
+                SELECT phone
+                FROM guest;</code></pre>
+                
+                        </div>
+                
+                
+                        <!-- RESULT -->
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                
+                                    <span>
+                                        Phone
+                                    </span>
+                
+                                    <span>
+                                        Source
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        02188888001
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        02288888004
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        02488888008
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        02748888005
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        03188888003
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        03618889999
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        03708888009
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        04118888007
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        06188888006
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                                <div class="sql-output-row">
+                
+                                    <span>
+                                        07788888010
+                                    </span>
+                
+                                    <span>
+                                        Hotel
+                                    </span>
+                
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <!-- INSIGHT -->
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Combines phone numbers stored in the hotel
+                                and guest tables into a single contact list.
+                                UNION removes duplicate values from the
+                                combined result.
+                            </p>
+                
+                        </div>
+                
+                
+                        <!-- DATASET NOTE -->
+                
+                        <div class="sql-note">
+                
+                            <span>
+                                DATASET NOTE
+                            </span>
+                
+                            <p>
+                                The displayed rows represent the beginning
+                                of the result set. The original query output
+                                contains more than ten rows.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
-                    <div class="sql-card-content">
-
-                        <span>
-                            UNION
-                        </span>
-
-                        <h3>
-                            Unique contact numbers
-                        </h3>
-
-                        <p>
-                            How can unique phone numbers
-                            across hotels and guests be combined?
-                        </p>
-
-                    </div>
-
-                </article>
+                
+                </details>
 
 
                 <!-- QUERY 05 -->
