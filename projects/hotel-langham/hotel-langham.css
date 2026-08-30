@@ -1710,17 +1710,6 @@ body > footer a:hover {
 
 
 /* =====================================================
-   1. SUPPORTING SQL CARD
-===================================================== */
-
-.sql-supporting {
-
-    grid-column:
-        1 / -1;
-}
-
-
-/* =====================================================
    2. SQL QUESTION
 ===================================================== */
 
@@ -2140,6 +2129,309 @@ body > footer a:hover {
 
         padding:
             14px 15px;
+    }
+
+}
+
+/* =====================================================
+   SQL ACCORDION / DISCLOSURE
+===================================================== */
+
+.sql-card {
+    cursor: default;
+}
+
+
+.sql-card-summary {
+
+    position:
+        relative;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        55px minmax(0, 1fr) 34px;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    padding:
+        28px;
+
+    cursor:
+        pointer;
+
+    list-style:
+        none;
+}
+
+
+.sql-card-summary::-webkit-details-marker {
+    display:
+        none;
+}
+
+
+.sql-card-summary .sql-card-number {
+
+    margin:
+        0;
+}
+
+
+.sql-card-preview {
+
+    min-width:
+        0;
+}
+
+
+.sql-card-preview > span {
+
+    display:
+        block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+.sql-card-preview h3 {
+
+    margin:
+        0 0 8px;
+
+    font-size:
+        23px;
+
+    line-height:
+        1.15;
+
+    letter-spacing:
+        -0.7px;
+}
+
+
+.sql-card-preview p {
+
+    margin:
+        0 !important;
+
+    max-width:
+        650px;
+
+    color:
+        var(--text-muted) !important;
+
+    font-size:
+        13px !important;
+
+    line-height:
+        1.7 !important;
+}
+
+
+/* =====================================================
+   TOGGLE
+===================================================== */
+
+.sql-card-toggle {
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex:
+        0 0 auto;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text);
+
+    font-size:
+        18px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+}
+
+
+/* =====================================================
+   OPEN STATE
+===================================================== */
+
+.sql-card[open] {
+
+    border-color:
+        rgba(40, 100, 232, 0.25);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+.sql-card[open] .sql-card-toggle {
+
+    background:
+        var(--accent);
+
+    border-color:
+        var(--accent);
+
+    color:
+        white;
+
+    transform:
+        rotate(45deg);
+}
+
+
+.sql-card[open] .sql-card-summary {
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.sql-card-details {
+
+    padding:
+        0 28px 28px;
+}
+
+
+.sql-card-details .sql-code-block {
+
+    margin-top:
+        24px;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.sql-card-summary:hover .sql-card-toggle {
+
+    border-color:
+        var(--accent);
+
+    color:
+        var(--accent);
+
+    transform:
+        scale(1.06);
+}
+
+
+.sql-card[open] .sql-card-summary:hover .sql-card-toggle {
+
+    background:
+        var(--accent-dark);
+
+    color:
+        white;
+
+    transform:
+        rotate(45deg)
+        scale(1.06);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .sql-card-summary {
+
+        grid-template-columns:
+            40px minmax(0, 1fr) 30px;
+
+        gap:
+            13px;
+
+        padding:
+            21px;
+    }
+
+
+    .sql-card-details {
+
+        padding:
+            0 21px 21px;
+    }
+
+
+    .sql-card-preview h3 {
+
+        font-size:
+            20px;
+    }
+
+
+    .sql-card-preview p {
+
+        font-size:
+            12px !important;
+    }
+
+
+    .sql-card-toggle {
+
+        width:
+            30px;
+
+        height:
+            30px;
+
+        font-size:
+            16px;
     }
 
 }
