@@ -2435,3 +2435,25 @@ body > footer a:hover {
     }
 
 }
+
+/* =====================================================
+   FEATURED SQL CARD
+===================================================== */
+
+.sql-card.featured-sql {
+    border-color:
+        #d8e5ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8fbff 100%
+        );
+}
+
+
+.sql-card.featured-sql[open] {
+    box-shadow:
+        0 20px 50px rgba(40, 100, 232, 0.10);
+}
