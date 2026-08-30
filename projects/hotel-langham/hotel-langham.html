@@ -870,35 +870,177 @@
 
                 <!-- QUERY 03 -->
 
-                <article class="sql-card featured-sql">
-
-                    <div class="sql-card-number">
-                        03
+                <details class="sql-card featured-sql">
+                
+                    <summary class="sql-card-summary">
+                
+                        <div class="sql-card-number">
+                            03
+                        </div>
+                
+                        <div class="sql-card-preview">
+                
+                            <span>
+                                FULL OUTER JOIN
+                            </span>
+                
+                            <h3>
+                                Payment & reservation audit
+                            </h3>
+                
+                            <p>
+                                How can payment and reservation
+                                records be compared?
+                            </p>
+                
+                            <small>
+                                My Contribution
+                            </small>
+                
+                        </div>
+                
+                        <div class="sql-card-toggle"
+                             aria-hidden="true">
+                            +
+                        </div>
+                
+                    </summary>
+                
+                
+                    <div class="sql-card-details">
+                
+                
+                        <!-- SQL -->
+                
+                        <div class="sql-code-block">
+                
+                            <span class="sql-block-label">
+                                SQL
+                            </span>
+                
+                            <pre><code>SELECT p.payment_id,
+                       r.reservation_id
+                FROM payment p
+                FULL OUTER JOIN reservation r
+                ON p.reservation_id = r.reservation_id;</code></pre>
+                
+                        </div>
+                
+                
+                        <!-- RESULT -->
+                
+                        <div class="sql-output-block">
+                
+                            <span class="sql-block-label">
+                                RESULT
+                            </span>
+                
+                            <div class="sql-output-table">
+                
+                                <div class="sql-output-row sql-output-header">
+                
+                                    <span>
+                                        Payment ID
+                                    </span>
+                
+                                    <span>
+                                        Reservation ID
+                                    </span>
+                
+                                </div>
+                
+                
+                                <div class="sql-output-row">
+                                    <span>PAY001</span>
+                                    <span>RSV001</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY002</span>
+                                    <span>RSV002</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY003</span>
+                                    <span>RSV003</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY004</span>
+                                    <span>RSV004</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY005</span>
+                                    <span>RSV005</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY006</span>
+                                    <span>RSV006</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY007</span>
+                                    <span>RSV007</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY008</span>
+                                    <span>RSV008</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY009</span>
+                                    <span>RSV009</span>
+                                </div>
+                
+                                <div class="sql-output-row">
+                                    <span>PAY010</span>
+                                    <span>RSV010</span>
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                
+                        <!-- INSIGHT -->
+                
+                        <div class="sql-insight">
+                
+                            <span class="sql-block-label">
+                                WHAT IT SHOWS
+                            </span>
+                
+                            <p>
+                                Compares payment and reservation records
+                                through their shared reservation ID using
+                                a FULL OUTER JOIN.
+                            </p>
+                
+                        </div>
+                
+                
+                        <!-- DATASET OBSERVATION -->
+                
+                        <div class="sql-note">
+                
+                            <span>
+                                DATASET OBSERVATION
+                            </span>
+                
+                            <p>
+                                All payment records in the current dataset
+                                have a corresponding reservation record,
+                                so no unmatched rows appear in the result.
+                            </p>
+                
+                        </div>
+                
                     </div>
-
-                    <div class="sql-card-content">
-
-                        <span>
-                            FULL OUTER JOIN
-                        </span>
-
-                        <h3>
-                            Payment & reservation audit
-                        </h3>
-
-                        <p>
-                            How can payment and reservation
-                            records be compared, including
-                            unmatched records?
-                        </p>
-
-                        <small>
-                            My Contribution
-                        </small>
-
-                    </div>
-
-                </article>
+                
+                </details>
 
 
                 <!-- QUERY 04 -->
